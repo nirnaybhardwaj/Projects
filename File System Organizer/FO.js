@@ -10,8 +10,7 @@
 // like text files will go into text File Folder, .exe files will go into application folder ans so on.
 // so at the end you will have a arranged set of files in specific folders.
 
-const fs = require('fs')
-const pat = require('path')
+
 
 //IMPORT
 const organizeWaliFile = require('./Commands/organize')
