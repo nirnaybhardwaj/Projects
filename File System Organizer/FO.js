@@ -16,6 +16,10 @@ const pat = require('path')
 //IMPORT
 const organizeWaliFile = require('./Commands/organize')
 
+const helpWaliFile = require('./Commands/help')
+
+const treeWaliFile = require('./Commands/tree')
+
 let input = process.argv.slice(2);
 
 
@@ -27,19 +31,36 @@ switch (command) {
         organizeWaliFile.organizeFunKey(input[1]) //dirPath
         break;
     case 'help':
-        console.log(`       List of all Commands - 
-1) Organize Command - node FO.js organize <dirname>
-2) Tree Command - node FO.js tree <dirPath>
-3) Help Command - node FO.js help`);
+        helpWaliFile.hepWaliKey()
 
         break;
     case 'tree':
-
+        treeWaliFile.treeWAliKey()    
+    
         break;
     default:
         console.log('Enter a valid command')
 
 }
+
+// Recursion - A function or a method calling itself until the edge is reached
+
+// function fact(n){
+    
+//     if(n ==0 || n == 1){
+//         return 1;
+//     }else{
+//         return n * fact(n - 1)
+//     }
+// }
+
+// let ans = fact(5)
+// console.log(ans)
+
+
+
+    
+
 
 
 
