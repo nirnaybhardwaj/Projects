@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.toolbox-cont{
+    background-color: grey;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+}
+.toolbox-cont >*{
+    margin-left: 4rem;
+}
+
+.toolbox-priorty-cont{
+    height: 3.5rem;
+    width: 18rem;
+    background-color: darkgrey;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.color{
+    height: 1.5rem;
+    width: 3rem;
+}
+
+.light_pink{
+    background-color: lightpink;
+}
+
+.light_green{
+    background-color: lightgreen;
+}
+
+.light_blue{
+    background-color: lightblue;
+}
+
+.black{
+    background-color: black;
+}
