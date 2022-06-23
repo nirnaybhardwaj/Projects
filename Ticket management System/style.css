@@ -100,3 +100,39 @@ body{
     height: 3rem;
     width: 5rem;
 }
+
+.main-cont{
+    display: flex;
+    /* gap means element k beech m gap ho  */
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+.ticket-cont{
+    height: 12rem;
+    width: 14rem;
+    background-color: coral;
+}
+
+.ticket-color{
+    height: 1rem;
+    background-color: black;
+}
+
+.ticket-id{
+    height: 2rem;
+    background-color: blue;
+}
+
+.text-area{
+
+}
+
+
+
+
+
+
+
