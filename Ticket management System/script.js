@@ -30,7 +30,7 @@ modalCont.addEventListener("keydown", function(e){
     if(key == 'Shift'){
         createTicket(taskArea.value)
         modalCont.style.display = 'none'
-        
+
         addFlag = false // bcoz dubara whi s shuru ho agr nhi krenge yaha to ek ticket 
         // bnne k baad jb + click krenge nhi aega model 2 baar click krne s aega 
 
@@ -39,11 +39,14 @@ modalCont.addEventListener("keydown", function(e){
 });
 
 function createTicket(ticketTask){
+    // for unique id 
+    let id = shortid()
+
     let ticketCont = document.createElement('div')
     ticketCont.setAttribute('class', 'ticket-cont')
 
     ticketCont.innerHTML = `<div class="ticket-color"></div>
-    <div class="ticket-id">id 1</div>
+    <div class="ticket-id">${id}</div>
     <div class="task-area">${ticketTask}</div>
 
     <div class="ticket-lock">
