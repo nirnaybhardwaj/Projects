@@ -69,7 +69,7 @@ body{
     background-color: lightblue;
     /* position: absolute krne s ye div screen sbahr aajata h or hum ise apne hisab s set kr skte h */
     position: absolute;
-    display: flex;
+    display: none;
 
     top: 30%;
     left: 25%;
@@ -142,7 +142,8 @@ body{
 }
 
 .remove-button:hover{
-    background-color: #f70d1a;
+    background-color: rgba(109, 91, 91, 0.729);
+    color: #f70d1a;
 }
 
 .toolbox-priorty-cont >*:hover{
