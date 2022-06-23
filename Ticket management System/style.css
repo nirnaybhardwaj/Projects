@@ -126,11 +126,28 @@ body{
     background-color: blue;
 }
 
-.text-area{
-
+.ticket-lock{
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: flex-end;
+    margin-top: 90px;
+    margin-right: 5px;
 }
 
+      /* ---- hover effect ---- */
 
+.add-button:hover{
+    background-color: #4BB543;
+    
+}
+
+.remove-button:hover{
+    background-color: #f70d1a;
+}
+
+.toolbox-priorty-cont >*:hover{
+    background-color: lightgray;
+}
 
 
 
