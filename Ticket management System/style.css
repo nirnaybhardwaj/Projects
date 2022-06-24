@@ -142,8 +142,8 @@ body{
 }
 
 .remove-button:hover{
-    background-color: rgba(109, 91, 91, 0.729);
-    color: #f70d1a;
+    background-color: #4BB543;
+    
 }
 
 .toolbox-priorty-cont >*:hover{
