@@ -14,6 +14,9 @@ let modalPriorityColor = colors[colors.length - 1]
 let addFlag = false
 let removeFlag = false
 
+let lockClass = 'fa-lock'
+let unlockClass = 'fa-lock-open'
+
 // modalCont.style.display = 'none'
 
 addBtn.addEventListener('click', function(){
@@ -68,16 +71,21 @@ function createTicket(ticketTask, ticketColor){
     ticketCont.setAttribute('class', 'ticket-cont')
 
     ticketCont.innerHTML = `<div class="ticket-color ${ticketColor}"></div>
+
     <div class="ticket-id">${id}</div>
+
     <div class="task-area">${ticketTask}</div>
 
     <div class="ticket-lock">
         <i class="fa-solid fa-lock"></i>
+
     </div>`
 
     mainCont.append(ticketCont)
 
     handleRemoval(ticketCont)
+
+    handleLock(ticketCont)
 }
 
 
@@ -101,6 +109,34 @@ function handleRemoval(ticket){
     })
     
 }
+
+
+function handleLock(ticket){
+    let ticketLockElem = ticket.querySelector('.ticket-lock')
+
+    let ticketLockIcon = ticketLockElem.children[0]
+
+    let ticketTaskArea = ticket.querySelector('.task-area')
+
+    ticketLockIcon.addEventListener('click', function(){
+        if(ticketLockIcon.classList.contains(lockClass)){
+            ticketLockIcon.classList.remove(lockClass)
+            ticketLockIcon.classList.add(unlockClass)
+            
+            // for edit the text area contenteditable is used
+            ticketTaskArea.setAttribute('contenteditable', 'true')
+        }
+        else{
+            ticketLockIcon.classList.remove(unlockClass)
+            ticketLockIcon.classList.add(lockClass)
+
+            // for edit the text area contenteditable is used
+            ticketTaskArea.setAttribute('contenteditable', 'false')
+        }
+    })
+}
+
+
 
 
 
