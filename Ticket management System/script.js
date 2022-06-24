@@ -77,7 +77,7 @@ removeBtn.addEventListener('click', function(){
 function handleRemoval(ticket){
 
     ticket.addEventListener('click', function(){
-        if(!removeFlag) return
+        if(!removeFlag) return // false to return
         ticket.remove()//ui removal
     })
     
