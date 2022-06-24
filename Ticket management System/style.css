@@ -82,8 +82,11 @@ body{
     outline: none;/* light the border*/
     border: none;/* remove the border*/
     resize: none; /* remove the expandable option from textarea*/
-    font-size: 2rem;
+    font-size: 3rem;
     padding: 2rem;
+}
+.task-area{
+    font-size: x-large;
 }
 
 .priority-color-cont{
@@ -147,7 +150,8 @@ body{
 }
 
 .toolbox-priorty-cont >*:hover{
-    background-color: lightgray;
+    border: 4px solid white;
+   
 }
 
 

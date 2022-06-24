@@ -19,40 +19,40 @@ let unlockClass = 'fa-lock-open'
 
 // modalCont.style.display = 'none'
 
-addBtn.addEventListener('click', function(){
+addBtn.addEventListener('click', function () {
 
     //display the model
-    addFlag =! addFlag
+    addFlag = !addFlag
 
-    if(addFlag == true){
+    if (addFlag == true) {
         modalCont.style.display = 'flex'
     }
-    else{
+    else {
         modalCont.style.display = 'none'
     }
 });
 
 
-                // ---- SELECT THE PRIORITY COLOR OF THE TASK ---- //
+// ---- SELECT THE PRIORITY COLOR OF THE TASK ---- //
 
-allPriorityColors.forEach(function(colorElem){
-    colorElem.addEventListener('click', function(e){
-        allPriorityColors.forEach(function(priorityColorElem){
+allPriorityColors.forEach(function (colorElem) {
+    colorElem.addEventListener('click', function (e) {
+        allPriorityColors.forEach(function (priorityColorElem) {
             priorityColorElem.classList.remove('active')
         })
         colorElem.classList.add('active')
 
         modalPriorityColor = colorElem.classList[0]
     })
-})                
+})
 
-                // ---- GENTERATE THE TICKET ---- // 
+// ---- GENTERATE THE TICKET ---- // 
 
-modalCont.addEventListener("keydown", function(e){
+modalCont.addEventListener("keydown", function (e) {
 
     let key = e.key
 
-    if(key == 'Shift'){
+    if (key == 'Shift') {
         createTicket(taskArea.value, modalPriorityColor)
         modalCont.style.display = 'none'
 
@@ -63,7 +63,7 @@ modalCont.addEventListener("keydown", function(e){
     }
 });
 
-function createTicket(ticketTask, ticketColor){
+function createTicket(ticketTask, ticketColor) {
     // for unique id 
     let id = shortid()
 
@@ -86,47 +86,49 @@ function createTicket(ticketTask, ticketColor){
     handleRemoval(ticketCont)
 
     handleLock(ticketCont)
+
+    handleColor(ticketCont)
 }
 
 
-removeBtn.addEventListener('click', function(){
-    removeFlag =!removeFlag // changes to true
+removeBtn.addEventListener('click', function () {
+    removeFlag = !removeFlag // changes to true
 
-    if(removeFlag == true){
+    if (removeFlag == true) {
         removeBtn.style.color = 'red'
     }
-    else{
+    else {
         removeBtn.style.color = 'white'
     }
 })
 
 
-function handleRemoval(ticket){
+function handleRemoval(ticket) {
 
-    ticket.addEventListener('click', function(){
-        if(!removeFlag) return // false to return
+    ticket.addEventListener('click', function () {
+        if (!removeFlag) return // false to return
         ticket.remove()//ui removal
     })
-    
+
 }
 
 
-function handleLock(ticket){
+function handleLock(ticket) {
     let ticketLockElem = ticket.querySelector('.ticket-lock')
 
     let ticketLockIcon = ticketLockElem.children[0]
 
     let ticketTaskArea = ticket.querySelector('.task-area')
 
-    ticketLockIcon.addEventListener('click', function(){
-        if(ticketLockIcon.classList.contains(lockClass)){
+    ticketLockIcon.addEventListener('click', function () {
+        if (ticketLockIcon.classList.contains(lockClass)) {
             ticketLockIcon.classList.remove(lockClass)
             ticketLockIcon.classList.add(unlockClass)
-            
+
             // for edit the text area contenteditable is used
             ticketTaskArea.setAttribute('contenteditable', 'true')
         }
-        else{
+        else {
             ticketLockIcon.classList.remove(unlockClass)
             ticketLockIcon.classList.add(lockClass)
 
@@ -137,6 +139,29 @@ function handleLock(ticket){
 }
 
 
+function handleColor(ticket){
+    let ticketColorBand = ticket.querySelector('.ticket-color')
 
+    ticketColorBand.addEventListener('click', function(){
+
+        //select the current color
+        let currentTicketColor = ticketColorBand.classList[1]
+
+        // current color ka index find krenege
+        let currentColorIdx = colors.findIndex(function(color){
+            return currentTicketColor === color
+        })
+        currentColorIdx++
+
+        //array s bahr na jae isliye % colors.length
+        let newTicketColorIdx = currentColorIdx % colors.length
+
+        let newTicketColor = colors[newTicketColorIdx]
+
+        ticketColorBand.classList.remove(currentTicketColor)
+        ticketColorBand.classList.add(newTicketColor)
+
+    })
+}
 
 
