@@ -47,15 +47,15 @@ body{
     width: 3rem;
 }
 
-.light_pink{
+.lightpink{
     background-color: lightpink;
 }
 
-.light_green{
+.lightgreen{
     background-color: lightgreen;
 }
 
-.light_blue{
+.lightblue{
     background-color: lightblue;
 }
 
@@ -118,7 +118,7 @@ body{
 
 .ticket-color{
     height: 1rem;
-    background-color: black;
+    
 }
 
 .ticket-id{
@@ -151,6 +151,8 @@ body{
 }
 
 
-
+.active{
+    border: 5px solid white;
+}
 
 

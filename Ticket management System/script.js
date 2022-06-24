@@ -6,6 +6,11 @@ let taskArea = document.querySelector('.textarea-cont')
 
 let removeBtn = document.querySelector('.remove-button')
 
+let colors = ['lightpink', 'lightgreen', 'lightblue', 'black']
+let allPriorityColors = document.querySelectorAll('.priority-color')
+
+let modalPriorityColor = colors[colors.length - 1]
+
 let addFlag = false
 let removeFlag = false
 
@@ -24,6 +29,20 @@ addBtn.addEventListener('click', function(){
     }
 });
 
+
+                // ---- SELECT THE PRIORITY COLOR OF THE TASK ---- //
+
+allPriorityColors.forEach(function(colorElem){
+    colorElem.addEventListener('click', function(e){
+        allPriorityColors.forEach(function(priorityColorElem){
+            priorityColorElem.classList.remove('active')
+        })
+        colorElem.classList.add('active')
+
+        modalPriorityColor = colorElem.classList[0]
+    })
+})                
+
                 // ---- GENTERATE THE TICKET ---- // 
 
 modalCont.addEventListener("keydown", function(e){
@@ -31,7 +50,7 @@ modalCont.addEventListener("keydown", function(e){
     let key = e.key
 
     if(key == 'Shift'){
-        createTicket(taskArea.value)
+        createTicket(taskArea.value, modalPriorityColor)
         modalCont.style.display = 'none'
 
         addFlag = false // bcoz dubara whi s shuru ho agr nhi krenge yaha to ek ticket 
@@ -41,14 +60,14 @@ modalCont.addEventListener("keydown", function(e){
     }
 });
 
-function createTicket(ticketTask){
+function createTicket(ticketTask, ticketColor){
     // for unique id 
     let id = shortid()
 
     let ticketCont = document.createElement('div')
     ticketCont.setAttribute('class', 'ticket-cont')
 
-    ticketCont.innerHTML = `<div class="ticket-color"></div>
+    ticketCont.innerHTML = `<div class="ticket-color ${ticketColor}"></div>
     <div class="ticket-id">${id}</div>
     <div class="task-area">${ticketTask}</div>
 
